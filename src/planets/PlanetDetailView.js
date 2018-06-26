@@ -1,7 +1,11 @@
 import React from 'react';
 
-const PlanetDetailView = (props) => {
-  return <h1>Viewing Planet: {props.match.params.id}</h1>
+const PlanetDetailView = ({ location, history, match: { params : { id } } }) => {
+  return (
+    <div>
+      <h1>Viewing Planet: {id}</h1>
+    </div>
+  )
 }
 
 export default PlanetDetailView;

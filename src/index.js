@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import AppRouter from './routers/AppRouter';
 
-axios.defaults.baseURL = 'https://https://swapi.co/api';
+axios.defaults.baseURL = 'https://swapi.co/api';
 
 const app = (
   <AppRouter />
