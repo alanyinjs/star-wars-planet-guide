@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
-
-
+import AppRouter from './routers/AppRouter';
 
 axios.defaults.baseURL = 'https://https://swapi.co/api';
 
 const app = (
-  <h1>Star Wars Planet Guide</h1>
-) ;
+  <AppRouter />
+);
 
 const root = document.getElementById('root');
 
