@@ -1,6 +1,8 @@
 import React from 'react';
+
 import PlanetList from './PlanetList';
 import PlanetListFilters from './PlanetListFilters';
+
 import { fetchPlanets } from '../api/planets';
 import { getVisiblePlanets } from '../utils/planets';
 
@@ -15,7 +17,7 @@ export default class PlanetView extends React.Component {
   componentDidMount() {
     this.setState({isLoading: true});
     fetchPlanets()
-      .then (data => {
+      .then(data => {
         this.setState({
           isLoading: false,
           planets: data
@@ -42,7 +44,12 @@ export default class PlanetView extends React.Component {
       <div>Loading</div>
     ) : (
       <div>
-        <PlanetListFilters setFilter={this.setFilter} setSortBy={this.setSortBy} filter={this.state.filter} sortBy={this.state.sortBy} />
+        <PlanetListFilters 
+          setFilter={this.setFilter} 
+          setSortBy={this.setSortBy} 
+          filter={this.state.filter} 
+          sortBy={this.state.sortBy} 
+        />
         <PlanetList planets={visiblePlanets} />
       </div>
     );
