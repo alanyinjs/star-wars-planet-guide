@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getIdFromUrl } from '../utils/planets';
 
 export async function fetchPlanets() {
   try{
@@ -10,17 +11,21 @@ export async function fetchPlanets() {
       const { data: { results } } = await axios.get(`/planets?page=${i}`);
       allResults = allResults.concat(results);
     }
-    return allResults
+
+    return allResults.map(result => ({
+      ...result,
+      id: getIdFromUrl(result.url)
+    }))
   } catch(err) {
     console.log(err);
   }
 }
 
-export async function fetchPlanetByName(name) {
-  const url = `/planets/?search=${name}`;
+export async function fetchPlanetById(Id) {
+  const url = `/planets/${Id}`;
   try{
-    const { data: { results } } = await axios.get(url);
-    const { name, rotation_period: rotPeriod, orbital_period: orbPeriod, diameter, climate, gravity, terrain, surface_water: surfaceWater, population, residents } = results[0]; 
+    const { data } = await axios.get(url);
+    const { name, rotation_period: rotPeriod, orbital_period: orbPeriod, diameter, climate, gravity, terrain, surface_water: surfaceWater, population, residents } = data; 
     return {
       name, 
       rotPeriod,
@@ -33,7 +38,6 @@ export async function fetchPlanetByName(name) {
       population,
       residents
     }
-
   } catch(err) {
     console.log(err);
   }

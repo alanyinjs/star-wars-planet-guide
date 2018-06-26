@@ -18,6 +18,7 @@ export default class PlanetView extends React.Component {
     this.setState({isLoading: true});
     fetchPlanets()
       .then(data => {
+        console.log(data);
         this.setState({
           isLoading: false,
           planets: data

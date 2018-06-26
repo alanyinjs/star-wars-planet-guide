@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PlanetListItem = ({ name, population, terrain }) => (
+const PlanetListItem = ({ id, name, population, terrain }) => (
   <div>
     <p>
       {name} - {population} - {terrain}
     </p>
-    <Link to={`/planet/${name}`}>
+    <Link to={`/planet/${id}`}>
       Planet Details
     </Link>
   </div>

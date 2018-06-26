@@ -12,4 +12,4 @@ This project is using `npm` for dependency management.  Make sure `npm` is insta
 - `npm install`
 - `npm start` - This command will run dev-server on `http://localhost:3000/`
 ## API
-This project is based on the SWAPI public API available at (https://swapi.co)
+This project is based on the SWAPI public API available at https://swapi.co

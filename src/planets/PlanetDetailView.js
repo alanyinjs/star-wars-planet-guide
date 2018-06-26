@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchPlanetByName } from '../api/planets';
+import { fetchPlanetById } from '../api/planets';
 
 export default class PlanetDetailView extends React.Component {
   state = {
@@ -9,16 +9,16 @@ export default class PlanetDetailView extends React.Component {
 
   componentDidMount() {
     this.setState({isLoading: true});
-    fetchPlanetByName(this.props.match.params.id)
+    fetchPlanetById(this.props.match.params.id)
       .then(planet => {
         this.setState ({
           isLoading: false,
           planet
         });
       })
-      .catch( e => {
+      .catch(e => {
         alert('error fetching planet details');
-      })
+      });
   }
 
   render() {

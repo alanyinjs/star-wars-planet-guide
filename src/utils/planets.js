@@ -1,3 +1,8 @@
+export const getIdFromUrl = url => {
+  const urlFragments = url.split('/');
+  return urlFragments[urlFragments.length - 2];
+};
+
 export const getVisiblePlanets = ({ planets, filter, sortBy }) => {
   return planets.filter(planet => {
     const filterMatch = typeof filter !== 'string' || 
@@ -14,4 +19,4 @@ export const getVisiblePlanets = ({ planets, filter, sortBy }) => {
       return a.population < b.population ? 1 : -1;
     }
   });
-}
+};
