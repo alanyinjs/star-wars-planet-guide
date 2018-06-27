@@ -27,9 +27,7 @@ export default class PlanetView extends React.Component {
       planets: this.props.planets
     };
     const visiblePlanets = getVisiblePlanets( planetState );
-    return this.props.isLoading ? (
-      <div>Loading</div>
-    ) : (
+    return (
       <div>
         <PlanetListFilters 
           setFilter={this.setFilter} 

@@ -37,13 +37,13 @@ export default class AppRouter extends React.Component {
 
   render() {
     return this.state.isLoading ? (
-      <h1>Landing Page</h1>
+      <h1>Landing Page - Loading the App</h1>
     ) : (
       <Router>
         <React.Fragment>
           <Header />
           <Switch>
-            <Route exact path='/' render={({ history, match, location }) => <PlanetView history={history} match={match} location={location} planets={this.state.planets} isLoading={this.state.isLoading}/>} />
+            <Route exact path='/' render={({ history, match, location }) => <PlanetView history={history} match={match} location={location} planets={this.state.planets} />} />
             <Route path='/planets/:id' component={PlanetDetailView} />
             <Route path='/about' component={AboutPage} />
             <Route path='/contact' component={ContactPage} />
