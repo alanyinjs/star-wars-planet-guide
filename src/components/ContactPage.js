@@ -1,10 +1,15 @@
 import React from 'react';
+import ContactForm from '../UIs/Form';
 
 const ContactPage = () => (
-  <div>
-    <h1>Contact</h1>
-    <div>You can contact the author through email. Email: yongqian.yin@gmail.com</div>
+  <div className="container">
+    <div className='row'>
+      <div className='col-md-8'>
+        <ContactForm />
+      </div>
+    </div>
   </div>
+
 );
 
 export default ContactPage;

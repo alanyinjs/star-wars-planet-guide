@@ -7,9 +7,26 @@ const PlanetList = (props) => (
       props.planets.length === 0 ? (
         <p>No matching planet</p>
       ) : (
-        props.planets.map(planet => (
-          <PlanetListItem key={planet.name} {...planet} />
-        ))
+        <div className='container'>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Population</th>
+                <th>Terrain</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                props.planets.map( (planet, index) => (
+                  <PlanetListItem key={planet.name} {...planet} index={index}/>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
       )
     }
   </div>

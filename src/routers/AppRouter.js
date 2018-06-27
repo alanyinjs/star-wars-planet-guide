@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
+import MDSpinner from 'react-md-spinner';
 
 import PlanetView from '../planets/PlanetView';
 import PlanetDetailView from '../planets/PlanetDetailView';
@@ -37,7 +38,11 @@ export default class AppRouter extends React.Component {
 
   render() {
     return this.state.isLoading ? (
-      <h1>Landing Page - Loading the App</h1>
+      <div>
+        <h1>Landing Page - Loading the App</h1>
+        <MDSpinner size={100} />
+      </div>
+
     ) : (
       <Router>
         <React.Fragment>
