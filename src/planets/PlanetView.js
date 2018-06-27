@@ -8,7 +8,7 @@ import { getVisiblePlanets } from '../utils/planets';
 export default class PlanetView extends React.Component {
   state = {
     filter: '',
-    sortBy: 'name'
+    sortBy: 'name-a-to-z'
   };
 
   setFilter = e => {
