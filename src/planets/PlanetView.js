@@ -3,31 +3,13 @@ import React from 'react';
 import PlanetList from './PlanetList';
 import PlanetListFilters from './PlanetListFilters';
 
-import { fetchPlanets } from '../api/planets';
 import { getVisiblePlanets } from '../utils/planets';
 
 export default class PlanetView extends React.Component {
   state = {
-    isLoading: false,
-    planets: [],
     filter: '',
     sortBy: 'name'
   };
-
-  componentDidMount() {
-    this.setState({isLoading: true});
-    fetchPlanets()
-      .then(data => {
-        console.log(data);
-        this.setState({
-          isLoading: false,
-          planets: data
-        });
-      })
-      .catch( e => {
-        alert('error fetching planets');
-      })
-  }
 
   setFilter = e => {
     console.log('filter changing');
@@ -40,8 +22,12 @@ export default class PlanetView extends React.Component {
   }
 
   render() {
-    const visiblePlanets = getVisiblePlanets( this.state );
-    return this.state.isLoading ? (
+    const planetState = {
+      ...this.state,
+      planets: this.props.planets
+    };
+    const visiblePlanets = getVisiblePlanets( planetState );
+    return this.props.isLoading ? (
       <div>Loading</div>
     ) : (
       <div>

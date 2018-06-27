@@ -6,7 +6,7 @@ const PlanetListItem = ({ id, name, population, terrain }) => (
     <p>
       {name} - {population} - {terrain}
     </p>
-    <Link to={`/planet/${id}`}>
+    <Link to={`/planets/${id}`}>
       Planet Details
     </Link>
   </div>
