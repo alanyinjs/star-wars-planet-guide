@@ -23,23 +23,33 @@ export default class PlanetDetailView extends React.Component {
 
   render() {
     const { 
-      name = '', 
-      rotPeriod = '', 
-      orbPeriod = '', 
-      diameter = '', 
-      climate = '', 
-      gravity = '', 
-      terrain = '', 
-      surfaceWater = '', 
-      population = '', 
-      residents = []
+      name = '',
+      rotPeriod = '',
+      orbPeriod = '',
+      diameter = '',
+      climate = '',
+      gravity = '',
+      terrain = '',
+      surfaceWater = '',
+      population = '',
+      residentNames = []
     } = this.state.planet;
+    console.log(residentNames);
     return this.state.isLoading ? (
       <div>Loading</div>
     ) : (
       <div>
-        {name} - {rotPeriod} - {orbPeriod} - {diameter} - {climate}
+        <p>
+          {name} - {rotPeriod} - {orbPeriod} - {diameter} - {climate} - {gravity} - {terrain} - {surfaceWater} - {population}
+        </p>
+        <ul>
+          {residentNames.map(residentName => (
+            <li key={residentName}>{residentName}</li>
+          ))}
+        </ul>
+
       </div>
     );
   }
 }
+

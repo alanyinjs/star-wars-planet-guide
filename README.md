@@ -5,7 +5,7 @@ This project was designed and created as part of the interview process for [Chec
 ## Functionality
 
 ## Technology
-- Code: `React (~0.16), Javascript (ES2017 - Babel)`
+- Code: `React (16.4.0), Javascript (ES2017 - Babel)`
 - Build and dev tools: [Create-React-App](https://github.com/facebook/create-react-app)
 ## Development
 This project is using `npm` for dependency management.  Make sure `npm` is installed on your machine.

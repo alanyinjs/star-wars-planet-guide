@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getIdFromUrl } from '../utils/planets';
+import { fetchPlanetPeopleName } from './people';
 
 export async function fetchPlanets() {
   try{
@@ -26,7 +27,7 @@ export async function fetchPlanetById(Id) {
   try{
     const { data } = await axios.get(url);
     const { name, rotation_period: rotPeriod, orbital_period: orbPeriod, diameter, climate, gravity, terrain, surface_water: surfaceWater, population, residents } = data; 
-    return {
+    const planetDetails = {
       name, 
       rotPeriod,
       orbPeriod,
@@ -37,6 +38,11 @@ export async function fetchPlanetById(Id) {
       surfaceWater,
       population,
       residents
+    };
+    const residentNames = await fetchPlanetPeopleName(residents);
+    return {
+      ...planetDetails,
+      residentNames
     }
   } catch(err) {
     console.log(err);
