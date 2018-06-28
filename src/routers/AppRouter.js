@@ -30,10 +30,7 @@ export default class AppRouter extends React.Component {
           isLoading: false,
           planets: data
         });
-      })
-      .catch( e => {
-        alert('error fetching planets');
-      })
+      });
   }
 
   render() {

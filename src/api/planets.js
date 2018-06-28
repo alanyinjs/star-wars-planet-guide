@@ -18,7 +18,7 @@ export async function fetchPlanets() {
       id: getIdFromUrl(result.url)
     }))
   } catch(err) {
-    console.log(err);
+    alert('Error fetching planets');
   }
 }
 
@@ -45,6 +45,6 @@ export async function fetchPlanetById(Id) {
       residentNames
     }
   } catch(err) {
-    alert("error fetching planets"); 
+    alert("Error fetching planets by Id"); 
   }
 }

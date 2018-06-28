@@ -20,9 +20,6 @@ export default class PlanetDetailView extends React.Component {
           isLoading: false,
           planet
         });
-      })
-      .catch(e => {
-        alert('error fetching planet details');
       });
   }
 
