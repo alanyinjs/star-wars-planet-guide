@@ -1,0 +1,20 @@
+// import abstracts
+@import "abstracts/mixins";
+@import 'abstracts/variables';
+
+// import vendors
+@import 'vendors/bootstrap';
+
+// import base
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+
+// import components
+
+// import layout
+
+// import pages
+@import "pages/landing-page";
+
+
