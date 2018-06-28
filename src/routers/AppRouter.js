@@ -8,9 +8,10 @@ import PlanetDetailView from '../planets/PlanetDetailView';
 import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import ErrorPage from '../components/ErrorPage';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import HelpPage from '../components/HelpPage';
-import Footer from '../components/Footer';
+import LandingPage from '../components/LandingPage';
 
 import { fetchPlanets } from '../api/planets';
 
@@ -38,11 +39,7 @@ export default class AppRouter extends React.Component {
 
   render() {
     return this.state.isLoading ? (
-      <div>
-        <h1>Landing Page - Loading the App</h1>
-        <MDSpinner size={100} />
-      </div>
-
+      <LandingPage />
     ) : (
       <Router>
         <React.Fragment>
