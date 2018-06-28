@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
-import MDSpinner from 'react-md-spinner';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import PlanetView from '../planets/PlanetView';
 import PlanetDetailView from '../planets/PlanetDetailView';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => (
-  <div>
+  <div className="container">
     <h1>About</h1>
     <p>This website is designed by Alan Yin.</p>
   </div>

@@ -45,6 +45,6 @@ export async function fetchPlanetById(Id) {
       residentNames
     }
   } catch(err) {
-    console.log(err);
+    alert("error fetching planets"); 
   }
 }

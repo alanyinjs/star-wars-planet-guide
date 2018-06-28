@@ -1,0 +1,10 @@
+.planet-card {
+
+  margin: auto;
+  position: relative;
+  min-height: 50vh;
+
+  &__list {
+    list-style: none;
+  }
+}

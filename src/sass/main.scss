@@ -11,10 +11,13 @@
 @import "base/typography";
 
 // import components
+@import "components/planet-card";
 
 // import layout
+@import "layout/footer";
+@import "layout/header";
 
 // import pages
 @import "pages/landing-page";
-
+@import "pages/planet-detail";
 

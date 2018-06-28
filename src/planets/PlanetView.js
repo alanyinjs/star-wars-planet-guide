@@ -28,13 +28,20 @@ export default class PlanetView extends React.Component {
     };
     const visiblePlanets = getVisiblePlanets( planetState );
     return (
-      <div>
-        <PlanetListFilters 
-          setFilter={this.setFilter} 
-          setSortBy={this.setSortBy} 
-          filter={this.state.filter} 
-          sortBy={this.state.sortBy} 
-        />
+      <div className="container">
+        <div className="row d-flex flex-row align-items-center">
+          <div className="col-3">
+            <p>Displaying {visiblePlanets.length} of {planetState.planets.length} planets</p>
+          </div>
+          <div className="col-9">
+            <PlanetListFilters 
+              setFilter={this.setFilter} 
+              setSortBy={this.setSortBy} 
+              filter={this.state.filter} 
+              sortBy={this.state.sortBy} 
+            />
+          </div>
+        </div>
         <PlanetList planets={visiblePlanets} />
       </div>
     );

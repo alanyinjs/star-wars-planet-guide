@@ -1,5 +1,5 @@
 import React from 'react';
-import MDSpinner from 'react-md-spinner';
+import LoadingSpinner from '../UIs/LoadingSpinner';
 
 const LandingPage = () => (
   <div className="landing">
@@ -13,15 +13,11 @@ const LandingPage = () => (
             </div>
         </h1>
     </div>
-    <div className="landing__loader">
-      <MDSpinner 
-        size={100} 
-        color1="#FCE852" 
-        color2="#FCE852" 
-        color3="#FCE852" 
-        color4="#FCE852"
-      />
-    </div>
+    <LoadingSpinner 
+      color="#FCE852" 
+      className="landing__loader" 
+      size={100}
+    />
   </div>
 
 

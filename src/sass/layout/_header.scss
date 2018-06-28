@@ -1,0 +1,30 @@
+.header {
+  background-color: $color-grey-dark;
+  padding: 5rem;
+  margin-bottom: 1.5em;
+
+  &__item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-secondary;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+  }
+
+  &__navlink--active {
+    font-weight: bold;
+  }
+
+  &__title{
+    color: $color-secondary;
+  }
+}

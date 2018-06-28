@@ -1,3 +1,11 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin positionCenter($top-position) {
   position: absolute;
   top: $top-position;

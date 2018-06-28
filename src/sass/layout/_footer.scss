@@ -1,0 +1,33 @@
+.footer {
+  background-color: $color-grey-dark;
+  padding: 5rem;
+  margin-top: 1em;
+
+  &__item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-secondary;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+  &__navlink--active {
+    font-weight: bold;
+  }
+
+  }
+
+  &__copyright {
+    color: $color-secondary;
+    letter-spacing: 0.1rem;
+  }
+}
+
