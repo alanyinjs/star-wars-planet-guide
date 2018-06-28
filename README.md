@@ -40,12 +40,12 @@ The above method also has drawbacks. When any page is refreshed, the app will be
 The returned data does not include a planet ID. However planet ID is required for fetching individual planet information through `/planet/:id`. The returned data was reformatted to include the `ID` attribute (which was derived from the `url` attribute of the returned data).
 
 ## Future Improvement
-- To solve the issue associated with refresh, mentioned in Considerations section, fetching data and rendering the AppRouter (or App) need to be decoupled. 
+- To solve the issue associated with refresh, mentioned in Considerations section, fetching data and rendering the `AppRouter` (or App) need to be decoupled. 
 - Error handling could be improved by incorporating a pop-up modal (rather than alert) and asking user input to decide the next step (i.e. whether to perform another API request).
-- More components (such as buttons) need to be extracted(I have only extracted LoadingSpinner at the moment), as a parent component does not need to know the details of such components (how they are wrapped etc.), other than passing props down.
+- More components (such as buttons) need to be extracted(I have only extracted `LoadingSpinner` at the moment), as a parent component does not need to know the details of such components (how they are wrapped etc.), other than passing props down.
 - Improve the styling of existing components.
 - The application needs to be optimised for mobile device users. This includes setting break-points and use Media Queries.
 
 ## FAQs
-- Why didn't you use Redux?
+- Why didn't you use Redux?  
 Answer: Although user interactions are present in this application, there is no deeply nested components or complicated interactions that involve communication between components beyond existing hierachy. Therefore, for simplicity, Redux was not chosen to develop this application. For the Redux project I am working on, please go to this repo: [Stockify](https://github.com/alanyin0322/stokify).
