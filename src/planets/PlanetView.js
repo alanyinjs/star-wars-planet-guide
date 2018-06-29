@@ -1,15 +1,30 @@
 import React from 'react';
 
+import LandingPage from '../components/LandingPage';
 import PlanetList from './PlanetList';
 import PlanetListFilters from './PlanetListFilters';
 
+import { getPlanets } from '../api/planets';
 import { getVisiblePlanets } from '../utils/planets';
 
 export default class PlanetView extends React.Component {
   state = {
+    isLoading: true,
+    planets: [],
     filter: '',
-    sortBy: 'name-a-to-z'
+    sortBy: 'name'
   };
+
+  componentDidMount() {
+    this.setState({isLoading: true});
+    getPlanets()
+      .then((planetResults) => {
+        this.setState({
+          isLoading: false,
+          planets: planetResults
+        });
+      });
+  }
 
   setFilter = e => {
     console.log('filter changing');
@@ -22,16 +37,14 @@ export default class PlanetView extends React.Component {
   }
 
   render() {
-    const planetState = {
-      ...this.state,
-      planets: this.props.planets
-    };
-    const visiblePlanets = getVisiblePlanets( planetState );
-    return (
+    const visiblePlanets = getVisiblePlanets(this.state);
+    return this.state.isLoading ? (
+      <LandingPage />
+    ) : (
       <div className="container">
         <div className="row d-flex flex-row align-items-center">
           <div className="col-3">
-            <p>Displaying {visiblePlanets.length} of {planetState.planets.length} planets</p>
+            <p>Displaying {visiblePlanets.length} of {this.state.planets.length} planets</p>
           </div>
           <div className="col-9">
             <PlanetListFilters 

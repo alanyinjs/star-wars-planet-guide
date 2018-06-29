@@ -2,7 +2,9 @@ import axios from 'axios';
 import { getIdFromUrl } from '../utils/planets';
 import { fetchPlanetPeopleName } from './people';
 
-export async function fetchPlanets() {
+let planetResults = [];
+
+export async function fetchPlanetData() {
   try{
     const { data: { count } } = await axios.get('/planets');
     const pageNum = Math.ceil(count / 10);
@@ -13,13 +15,31 @@ export async function fetchPlanets() {
       allResults = allResults.concat(results);
     }
 
-    return allResults.map(result => ({
+    planetResults = allResults.map(result => ({
       ...result,
       id: getIdFromUrl(result.url)
-    }))
+    }));
+
+    return planetResults;
   } catch(err) {
     alert('Error fetching planets');
   }
+}
+
+export async function getPlanets() {
+
+  const promise = await new Promise((resolve, reject) => {
+    const checkData = () => {
+      if(planetResults.length !== 0){
+        clearInterval(interval);
+        resolve();
+      } else {
+        console.log("waiting to get data");
+      }
+    }
+    const interval = setInterval(checkData, 1000);
+  });
+  return planetResults;
 }
 
 export async function fetchPlanetById(Id) {

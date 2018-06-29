@@ -10,9 +10,7 @@ import ErrorPage from '../components/ErrorPage';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import HelpPage from '../components/HelpPage';
-import LandingPage from '../components/LandingPage';
-
-import { fetchPlanets } from '../api/planets';
+import { fetchPlanetData } from '../api/planets';
 
 
 export default class AppRouter extends React.Component {
@@ -22,21 +20,17 @@ export default class AppRouter extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({isLoading: true});
-    fetchPlanets()
+    fetchPlanetData()
       .then(data => {
         console.log(data);
-        this.setState({
-          isLoading: false,
-          planets: data
-        });
-      });
+      })
+      .catch( e => {
+        alert('error fetching planets');
+      })
   }
 
   render() {
-    return this.state.isLoading ? (
-      <LandingPage />
-    ) : (
+    return (
       <Router>
         <React.Fragment>
           <Header />
