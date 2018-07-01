@@ -72,7 +72,7 @@ export default class PlanetDetailView extends React.Component {
                   <li key={residentName}>{residentName}</li>
                 ))}
               </ul>
-              <Link className='btn btn-primary' to={`/`}>
+              <Link className='btn btn-primary' to={`/planets`}>
                 Back
               </Link>
             </li>

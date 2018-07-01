@@ -9,7 +9,7 @@ const Header = () => (
       </div>
       <div className="col-8 d-flex">
               <ul className="header__list row">
-                  <li className="header__item"><NavLink to='/' className="header__link" activeClassName="header__navlink--active" exact={true}>Home</NavLink></li>
+                  <li className="header__item"><NavLink to='/planets' className="header__link" activeClassName="header__navlink--active" exact={true}>Home</NavLink></li>
                   <li className="header__item"><NavLink to='/about' className="header__link" activeClassName="header__navlink--active" exact={true}>About</NavLink></li>
                   <li className="header__item"><NavLink to='/help' className="header__link" activeClassName="header__navlink--active" exact={true}>Help</NavLink></li>
                   <li className="header__item"><NavLink to='/contact' className="header__link" activeClassName="header__navlink--active" exact={true}>Contact</NavLink></li>
