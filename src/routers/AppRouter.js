@@ -14,10 +14,6 @@ import { fetchPlanetData } from '../api/planets';
 
 
 export default class AppRouter extends React.Component {
-  state = {
-    isLoading: true,
-    planets: []
-  }
 
   componentDidMount() {
     fetchPlanetData()
@@ -33,17 +29,17 @@ export default class AppRouter extends React.Component {
     return (
       <Router>
         <React.Fragment>
-          <Header />
+          <Route path="/.{1,}" component={Header}/>
           <Switch>
-            <Route exact path='/' render={({ history, match, location }) => <PlanetView history={history} match={match} location={location} planets={this.state.planets} />} />
+            <Route exact path="/" component={PlanetView}/>
             <Route path='/planets/:id' component={PlanetDetailView} />
             <Route path='/about' component={AboutPage} />
             <Route path='/contact' component={ContactPage} />
             <Route path='/help' component={HelpPage} />
             <Route component={ErrorPage} />
           </Switch>
-          <Footer />
-        </React.Fragment>
+          <Route path="/.{1,}" component={Footer}/>
+          </React.Fragment>
       </Router>
     );
   }
