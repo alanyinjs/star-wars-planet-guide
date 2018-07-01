@@ -10,6 +10,10 @@ p {
   font-size: $default-font-size;
 }
 
+.btn-warning {
+  color: $color-grey;
+  background-color: $color-secondary;
+}
 
 .form-control {
   font-size: $default-font-size;
@@ -19,4 +23,5 @@ p {
   max-width: 114rem;
   margin: auto;
 }
+
 

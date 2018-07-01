@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LandingPage from '../components/LandingPage';
+import LoadingPage from '../components/LoadingPage';
 import PlanetList from './PlanetList';
 import PlanetListFilters from './PlanetListFilters';
 
@@ -39,7 +39,7 @@ export default class PlanetView extends React.Component {
   render() {
     const visiblePlanets = getVisiblePlanets(this.state);
     return this.state.isLoading ? (
-      <LandingPage />
+      <LoadingPage />
     ) : (
       <div className="container">
         <div className="row d-flex flex-row align-items-center">

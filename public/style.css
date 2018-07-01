@@ -7,6 +7,10 @@ p {
 .btn {
   font-size: 1.6rem; }
 
+.btn-warning {
+  color: #2f3031;
+  background-color: #FCE852; }
+
 .form-control {
   font-size: 1.6rem; }
 

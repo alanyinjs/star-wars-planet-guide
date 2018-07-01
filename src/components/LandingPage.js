@@ -1,26 +1,25 @@
 import React from 'react';
+
+import Button from '../UIs/Button';
+import LandingPageContent from '../UIs/LandingPageContent';
 import LoadingSpinner from '../UIs/LoadingSpinner';
 
-const LandingPage = () => (
+const LandingPage = (props) => props.isFetchingPlanetData ? (
   <div className="landing">
-    <div className="landing__text-box">
-        <h1 className="heading-primary">
-            <div className="landing-heading__text-box--main">
-              <span className="heading-primary--main">Star Wars Planet Guide</span>
-            </div>
-            <div className="landing-heading__text-box--sub">
-              <span className="heading-primary--sub">The Essential Guide to Planets and Moons</span>
-            </div>
-        </h1>
-    </div>
+    <LandingPageContent />
     <LoadingSpinner 
       color="#FCE852" 
       className="landing__loader" 
       size={100}
     />
   </div>
-
-
+):(
+  <div className="landing">
+    <LandingPageContent />
+    <Button to="/planets" className="btn-warning landing__loader">
+      Discover Planets
+    </Button>
+  </div>
 )
 
 export default LandingPage;
