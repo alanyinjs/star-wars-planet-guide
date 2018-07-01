@@ -49,3 +49,6 @@ The returned data does not include a planet ID. However planet ID is required fo
 ## FAQs
 - Why didn't you use Redux?  
 Answer: Although user interactions are present in this application, there is no deeply nested components or complicated interactions that involve communication between components beyond existing hierachy. Therefore, for simplicity, Redux was not chosen to develop this application. For the Redux project I am working on, please go to this repo: [Stockify](https://github.com/alanyin0322/stokify).
+
+## Update
+- 1/7/18 Solved the previous identified issue where refreshing the page would bring out the landing page. Used Regex to make sure the header and footer are not rendered on landing page.
