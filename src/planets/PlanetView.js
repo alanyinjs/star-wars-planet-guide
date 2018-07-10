@@ -29,12 +29,18 @@ export default class PlanetView extends React.Component {
   setFilter = e => {
     console.log('filter changing');
     this.setState({filter: e.target.value});
-  }
+  };
 
   setSortBy = e => {
     console.log('sortby changing');
     this.setState({sortBy: e.target.value});
-  }
+  };
+
+  addPlanet = planetData => {
+    this.setState(prevState => ({
+      planets: prevState.planets.concat(planetData)
+    }));
+  };
 
   render() {
     const visiblePlanets = getVisiblePlanets(this.state);
@@ -55,7 +61,7 @@ export default class PlanetView extends React.Component {
             />
           </div>
         </div>
-        <PlanetList planets={visiblePlanets} />
+        <PlanetList planets={visiblePlanets} addPlanet={this.addPlanet}/>
       </div>
     );
   }
