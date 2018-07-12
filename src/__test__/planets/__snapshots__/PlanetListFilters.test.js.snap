@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanetListFilters component PlanetListFilters matches snapshot 1`] = `
+<div
+  className="form-inline"
+>
+  <div
+    className="form-group col-6"
+  >
+    <label>
+      Search planet
+    </label>
+    <input
+      className="form-control"
+      id="filter"
+      type="text"
+    />
+  </div>
+  <div
+    className="form-group col-6"
+  >
+    <label>
+      Sort by
+    </label>
+    <select
+      className="form-control-lg"
+      id="sort-by"
+    >
+      <option
+        value="name-a-to-z"
+      >
+        Name: A to Z
+      </option>
+      <option
+        value="name-z-to-a"
+      >
+        Name: Z to A
+      </option>
+      <option
+        value="population-high-to-low"
+      >
+        Population: High to Low
+      </option>
+      <option
+        value="population-low-to-high"
+      >
+        Population: Low to High
+      </option>
+    </select>
+  </div>
+</div>
+`;
