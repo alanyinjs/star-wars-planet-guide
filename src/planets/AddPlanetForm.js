@@ -5,7 +5,8 @@ export default class AddPlanetForm extends React.Component {
     name: '',
     population: '',
     terrain: '',
-    error: ''
+    error: '',
+    success: ''
   };
 
   onNameChange = e => {
@@ -27,15 +28,22 @@ export default class AddPlanetForm extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     if(!this.state.name || !this.state.population || !this.state.terrain){
-      this.setState({error: 'All fields are required.'})
+      this.setState({error: 'All fields are required.'});
+      this.setState({success: ''});
     } else {
-      this.setState({error: ''});
       const planetData = {
         name: this.state.name,
         population: this.state.population,
         terrain: this.state.terrain
-      }
+      };
       this.props.addPlanet(planetData);
+      this.setState({
+        name: '',
+        population: '',
+        terrain: '',
+        error:'',
+        success: 'New planet added!'
+      });
     }
   }
 
@@ -62,6 +70,15 @@ export default class AddPlanetForm extends React.Component {
             <tr className="table-active">
               <td></td>
               <td><p style={{color: 'red'}}>{this.state.error}</p></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          ) : null}
+          {this.state.success ? (
+            <tr className="table-active">
+              <td></td>
+              <td><p style={{color: 'red'}}>{this.state.success}</p></td>
               <td></td>
               <td></td>
               <td></td>
