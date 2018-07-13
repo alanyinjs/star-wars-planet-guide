@@ -63,7 +63,7 @@ export default class AddPlanetForm extends React.Component {
               <input type="text" placeholder="e.g. ocean" value={this.state.terrain} onChange={this.onTerrainChange}/>
             </th>
             <th>
-              <button onClick={this.onSubmit} className="btn btn-primary">Add Planet</button>
+              <button onClick={this.onSubmit} className="btn btn-add">Add Planet</button>
             </th>
           </tr>
           {this.state.error ? (
