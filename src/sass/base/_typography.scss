@@ -24,3 +24,44 @@
     animation: moveInRight 1s ease-in-out;
   }
 }
+
+// Tablet 1200px
+@media screen and (max-width: 75em){
+  .heading-primary {
+    margin-bottom: 9rem;
+  
+    &--main {
+      font-size: 4rem;
+      font-weight: 200;
+      letter-spacing: 1rem;
+    }
+    
+    &--sub {
+      display: block;
+      font-size: 2rem;
+      font-weight: 200;
+      letter-spacing: 0.5rem;
+      animation: moveInRight 1s ease-in-out;
+    }
+  }
+}
+
+// Phone 600px
+@media screen and (max-width: 37.5em) {
+  .heading-primary {
+    margin-bottom: 2rem;
+  
+    &--main {
+      font-size: 4rem;
+      font-weight: 200;
+      letter-spacing: 1rem;
+    }
+    
+    &--sub {
+      font-size: 2rem;
+      font-weight: 200;
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+

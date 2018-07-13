@@ -2,6 +2,15 @@
   background-color: $color-grey-dark;
   padding: 5rem;
   margin-top: 1em;
+  display: grid;
+  grid-template-columns: [nav-start] auto [copyright-start] 30% [copyright-end];
+  justify-content: space-between;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-content: center;
+  }
 
   &__item {
     display: inline-block;
@@ -18,16 +27,44 @@
       text-transform: uppercase;
       display: inline-block;
     }
+  }
 
   &__navlink--active {
     font-weight: bold;
   }
 
-  }
-
   &__copyright {
     color: $color-secondary;
     letter-spacing: 0.1rem;
+  }
+}
+
+// Tablet 900px
+@media screen and (max-width: 56.25em){
+  .footer{
+    padding: 2rem;
+    grid-template-columns: [nav-start] auto [copyright-start]  55% [copyright-end];
+    justify-content: space-around;
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+}
+
+// Phone 600px
+@media screen and (max-width: 37.5em) {
+  .footer {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  .footer__navigation {
+    display:none;
+  }
+  .footer__copyright {
+    text-align: center;
   }
 }
 

@@ -36,3 +36,21 @@
     width: 100%;
   }
 }
+
+// Phone 600px
+@media screen and (max-width: 37.5em) {
+  .landing {
+    &__text-box {
+      width: 95%;
+      position: absolute;
+      top:40%;
+      left: 50%; 
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+    &__loader {
+      @include positionCenter(70%);
+    }
+  }
+}
