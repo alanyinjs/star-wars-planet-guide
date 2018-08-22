@@ -1,5 +1,6 @@
 import React from 'react';
 import PlanetListItem from './PlanetListItem';
+import AddPlanetForm from './AddPlanetForm';
 
 const PlanetList = (props) => (
   <div>
@@ -18,9 +19,10 @@ const PlanetList = (props) => (
                 <th></th>
               </tr>
             </thead>
+            <AddPlanetForm addPlanet={props.addPlanet}/>
             <tbody>
               {
-                props.planets.map( (planet, index) => (
+                props.planets.map((planet, index) => (
                   <PlanetListItem key={planet.name} {...planet} index={index}/>
                 ))
               }

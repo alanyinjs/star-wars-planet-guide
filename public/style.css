@@ -18,6 +18,11 @@ p {
   max-width: 114rem;
   margin: auto; }
 
+.btn-add {
+  background-color: black;
+  color: #FCE852;
+  width: 13.275rem; }
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
