@@ -1,0 +1,85 @@
+.planet-view {
+  display: grid;
+  grid-template-rows: 20% auto;
+  margin: 0 23%;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    justify-content: space-around
+  }
+}
+
+.planet-list-filters {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+
+  .text-filter {
+    display: grid;
+    grid-template-columns: fit-content(40%) 60%;
+    align-content: center;
+    margin-right: 2rem;
+  }
+
+  .sort-by {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: space-around;
+  }
+}
+
+// Tablet 1200px
+@media screen and (max-width: 56.25em){
+  thead {
+    display: none;
+  }
+}
+
+// Phone 600px
+@media screen and (max-width: 37.5em) {
+  .planet-view {
+    margin: 1rem;
+  }
+
+  .planet-list-filters {
+    display: none;
+  }
+
+  .planet-view__summary {
+    display: none;
+  }
+
+  .planet-list {
+    display: grid;
+    grid-template-columns: auto;
+
+    &__item {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      border: 1px solid;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &__attr {
+      display: block;
+      border-top-style: none !important;
+      grid-column: 2 / span 1;
+      text-align: left;
+
+      &--short {
+        grid-column: span 1;
+      }
+    }
+
+    &__attr:empty {
+      display: none;
+    }
+  }
+
+td {
+  max-width: 85vw;
+  overflow-wrap: break-word;
+}
+
+}

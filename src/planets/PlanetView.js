@@ -41,21 +41,23 @@ export default class PlanetView extends React.Component {
     return this.state.isLoading ? (
       <LoadingPage />
     ) : (
-      <div className="container">
-        <div className="row d-flex flex-row align-items-center">
-          <div className="col-3">
-            <p>Displaying {visiblePlanets.length} of {this.state.planets.length} planets</p>
-          </div>
-          <div className="col-9">
-            <PlanetListFilters 
-              setFilter={this.setFilter} 
-              setSortBy={this.setSortBy} 
-              filter={this.state.filter} 
-              sortBy={this.state.sortBy} 
-            />
-          </div>
-        </div>
-        <PlanetList planets={visiblePlanets} />
+      <div className="planet-view">
+        <section className="planet-view__header">
+            <div className="planet-view__summary">
+              <p>Displaying {visiblePlanets.length} of {this.state.planets.length} planets</p>
+            </div>
+            <div className="planet-view__filters">
+              <PlanetListFilters 
+                setFilter={this.setFilter} 
+                setSortBy={this.setSortBy} 
+                filter={this.state.filter} 
+                sortBy={this.state.sortBy} 
+              />
+            </div>
+        </section>
+        <section className="planet-view__table">
+          <PlanetList planets={visiblePlanets} />
+        </section>
       </div>
     );
   }

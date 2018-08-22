@@ -18,7 +18,7 @@ const PlanetList = (props) => (
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="planet-list">
               {
                 props.planets.map( (planet, index) => (
                   <PlanetListItem key={planet.name} {...planet} index={index}/>
