@@ -12,7 +12,7 @@ export default class PlanetView extends React.Component {
     isLoading: true,
     planets: [],
     filter: '',
-    sortBy: 'name'
+    sortBy: 'name-a-to-z'
   };
 
   componentDidMount() {
