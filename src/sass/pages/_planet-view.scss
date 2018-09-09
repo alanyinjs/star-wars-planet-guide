@@ -1,7 +1,18 @@
+#root {
+  display: grid;
+  grid-template-rows: 13.5rem 1fr 15.5rem;
+  height: 100vh;
+}
+
+.container {
+  padding: 2rem;
+}
+
 .planet-view {
   display: grid;
   grid-template-rows: 20% auto;
   margin: 0 23%;
+  padding: 2rem 0;
 
   &__header {
     display: grid;
