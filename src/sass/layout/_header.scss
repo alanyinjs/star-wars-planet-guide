@@ -1,7 +1,7 @@
 .header {
   background-color: $color-grey-dark;
   padding: 5rem;
-  margin-bottom: 1.5em;
+  // margin-bottom: 1.5em;
   display: grid;
   grid-template-columns: [logo-start] 35% [nav-start] auto [nav-end];
   justify-content: space-between;
