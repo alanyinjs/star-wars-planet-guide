@@ -181,13 +181,26 @@ body {
   .header__title {
     color: #FCE852; }
 
+.dropdown {
+  display: none; }
+  .dropdown[aria-expanded=true] {
+    display: block; }
+
+.topnav {
+  display: none; }
+
 @media screen and (max-width: 37.5em) {
   .header {
     padding: 3rem;
     grid-template-columns: auto;
     justify-content: center; }
   .header__list {
-    display: none; } }
+    display: none; }
+  .topnav {
+    display: block;
+    background-color: #131414; }
+    .topnav--active {
+      background-color: #FCE852; } }
 
 .landing {
   height: 100vh;

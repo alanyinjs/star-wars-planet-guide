@@ -38,6 +38,17 @@
   }
 }
 
+.dropdown {
+  display: none;
+  &[aria-expanded=true] {
+    display: block;
+  }
+}
+
+.topnav {
+  display: none;
+}
+
 // Phone 600px
 @media screen and (max-width: 37.5em) {
   .header {
@@ -47,5 +58,13 @@
   }
   .header__list {
     display:none;
+  }
+
+  .topnav {
+    display: block;
+    background-color: $color-primary;
+    &--active {
+      background-color: $color-secondary;
+    }
   }
 }
