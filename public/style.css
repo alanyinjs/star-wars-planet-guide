@@ -182,25 +182,46 @@ body {
     color: #FCE852; }
 
 .dropdown {
-  display: none; }
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  width: 100vw; }
   .dropdown[aria-expanded=true] {
-    display: block; }
+    visibility: visible; }
+  .dropdown__list {
+    list-style: none;
+    text-align: center; }
+  .dropdown__item {
+    color: #FCE852;
+    background-color: #131414; }
 
 .topnav {
   display: none; }
 
 @media screen and (max-width: 37.5em) {
   .header {
-    padding: 3rem;
+    padding: 1rem;
     grid-template-columns: auto;
-    justify-content: center; }
+    justify-content: center;
+    border-bottom: 1px solid #FCE852; }
   .header__list {
     display: none; }
   .topnav {
     display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-left: 1px solid #FCE852;
+    border-bottom: 1px solid #FCE852;
     background-color: #131414; }
     .topnav--active {
-      background-color: #FCE852; } }
+      background-color: #FCE852; }
+    .topnav-icon {
+      color: #FCE852; }
+    .topnav-label {
+      color: #FCE852; } }
 
 .landing {
   height: 100vh;
@@ -286,6 +307,8 @@ body {
     display: none; } }
 
 @media screen and (max-width: 37.5em) {
+  #root {
+    grid-template-rows: 5rem 1fr 15.5rem; }
   .planet-view {
     margin: 1rem; }
   .planet-list-filters {

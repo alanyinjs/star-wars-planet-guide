@@ -39,9 +39,23 @@
 }
 
 .dropdown {
-  display: none;
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  width: 100vw;
+
   &[aria-expanded=true] {
-    display: block;
+    visibility: visible;
+  }
+
+  &__list {
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    color: $color-secondary;
+    background-color: $color-grey-dark;
   }
 }
 
@@ -52,9 +66,10 @@
 // Phone 600px
 @media screen and (max-width: 37.5em) {
   .header {
-    padding: 3rem;
+    padding: 1rem;
     grid-template-columns: auto;
     justify-content: center;
+    border-bottom: 1px solid $color-secondary
   }
   .header__list {
     display:none;
@@ -62,9 +77,22 @@
 
   .topnav {
     display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-left: 1px solid $color-secondary;
+    border-bottom: 1px solid $color-secondary;
     background-color: $color-primary;
     &--active {
       background-color: $color-secondary;
+    }
+    &-icon {
+      color: $color-secondary;
+    }
+    &-label {
+      color: $color-secondary;
     }
   }
 }

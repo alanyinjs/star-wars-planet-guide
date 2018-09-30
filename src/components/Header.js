@@ -6,7 +6,7 @@ import DropdownMenu from './DropdownMenu.js';
 export default class Header extends React.Component {
   state = { expanded: false };
 
-  onDropdownClick = () => {
+  toggleDropdown = () => {
     this.setState(prevState => {
       console.log(prevState.expanded);
       return {
@@ -22,7 +22,7 @@ export default class Header extends React.Component {
           <h1>Star Wars Planet Guide</h1>
         </div>
         <TopNav
-          onDropdownClick={this.onDropdownClick}
+          toggleDropdown={this.toggleDropdown}
           active={this.state.expanded}
         />
         <div className="header__list">

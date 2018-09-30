@@ -48,6 +48,9 @@
 
 // Phone 600px
 @media screen and (max-width: 37.5em) {
+  #root {
+    grid-template-rows: 5rem 1fr 15.5rem;
+  }
   .planet-view {
     margin: 1rem;
   }
