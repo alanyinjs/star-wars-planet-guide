@@ -106,6 +106,26 @@ body {
       font-weight: 200;
       letter-spacing: 0.5rem; } }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  cursor: pointer; }
+  .pagination .page {
+    display: block;
+    color: #007BFF;
+    border-width: 0.5px 0 0.5px 0.5px;
+    border-radius: 1px;
+    border-style: groove;
+    border-color: #616264;
+    padding: 0.8rem 1.6rem; }
+    .pagination .page:last-child {
+      border-width: 0.5px; }
+    .pagination .page--active {
+      color: #FFFFFF;
+      background-color: #007BFF;
+      cursor: default; }
+
 .planet-card {
   margin: auto;
   position: relative;
@@ -247,7 +267,7 @@ body {
 
 .planet-view {
   display: grid;
-  grid-template-rows: 20% auto;
+  grid-template-rows: 20% auto auto;
   margin: 0 23%;
   padding: 2rem 0; }
   .planet-view__header {

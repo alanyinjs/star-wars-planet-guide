@@ -3,17 +3,23 @@ import React from 'react';
 import LoadingPage from '../components/LoadingPage';
 import PlanetList from './PlanetList';
 import PlanetListFilters from './PlanetListFilters';
+import Pagination from '../components/Pagination';
 
 import { getPlanets } from '../api/planets';
 import { getVisiblePlanets } from '../utils/planets';
 
 export default class PlanetView extends React.Component {
-  state = {
-    isLoading: true,
-    planets: [],
-    filter: '',
-    sortBy: 'name-a-to-z'
-  };
+  constructor(){
+    super();
+    this.state = {
+      isLoading: true,
+      planets: [],
+      filter: '',
+      sortBy: 'name-a-to-z',
+      currentPage: 1,
+      planetsPerPage: 10,
+    };
+  }
 
   componentDidMount() {
     this.setState({isLoading: true});
@@ -26,18 +32,36 @@ export default class PlanetView extends React.Component {
       });
   }
 
+  onPageChange = e => {
+    this.setState({currentPage: parseInt(e.target.innerHTML)});
+  }
+
+  renderPagination = () => {
+    const numberOfPlanets = this.state.planets.length;
+    const planetsPerPage = this.state.planetsPerPage;
+    const pageNumber = Math.ceil(numberOfPlanets / planetsPerPage);
+    return (
+        <Pagination 
+          currentPage={this.state.currentPage}
+          pageNumber={pageNumber}
+          onClick={this.onPageChange}
+        />
+    );
+  }
+
   setFilter = e => {
-    console.log('filter changing');
     this.setState({filter: e.target.value});
   }
 
   setSortBy = e => {
-    console.log('sortby changing');
     this.setState({sortBy: e.target.value});
   }
 
   render() {
     const visiblePlanets = getVisiblePlanets(this.state);
+    const indexOfEnd = this.state.planetsPerPage * this.state.currentPage;
+    const indexOfStart = indexOfEnd - this.state.planetsPerPage;
+    const displayPlanets = visiblePlanets.slice(indexOfStart, indexOfEnd);
     return this.state.isLoading ? (
       <LoadingPage />
     ) : (
@@ -56,8 +80,9 @@ export default class PlanetView extends React.Component {
             </div>
         </section>
         <section className="planet-view__table">
-          <PlanetList planets={visiblePlanets} />
+          <PlanetList planets={displayPlanets} />
         </section>
+        {this.renderPagination()}
       </div>
     );
   }

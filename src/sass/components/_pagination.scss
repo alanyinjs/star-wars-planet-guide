@@ -1,0 +1,24 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+
+    .page {
+        display: block;
+        color: $color-link;
+        border-width: 0.5px 0 0.5px 0.5px;
+        border-radius: 1px;
+        border-style: groove;
+        border-color: $color-grey-light;
+        padding: 0.8rem 1.6rem;
+        &:last-child {
+            border-width: 0.5px;
+        }
+        &--active {
+            color: $color-white;
+            background-color: $color-link;
+            cursor: default;
+        }
+    }
+}
