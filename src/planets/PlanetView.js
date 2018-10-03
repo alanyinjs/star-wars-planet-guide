@@ -71,7 +71,7 @@ export default class PlanetView extends React.Component {
             </div>
         </section>
         <section className="planet-view__table">
-          <PlanetList planets={displayPlanets} />
+          <PlanetList planets={displayPlanets} indexOfStart={indexOfStart}/>
         </section>
         <Pagination
           currentPage={this.state.currentPage}
