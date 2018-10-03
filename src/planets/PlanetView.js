@@ -36,21 +36,11 @@ export default class PlanetView extends React.Component {
     this.setState({currentPage: parseInt(e.target.innerHTML)});
   }
 
-  renderPagination = () => {
-    const numberOfPlanets = this.state.planets.length;
-    const planetsPerPage = this.state.planetsPerPage;
-    const pageNumber = Math.ceil(numberOfPlanets / planetsPerPage);
-    return (
-        <Pagination 
-          currentPage={this.state.currentPage}
-          pageNumber={pageNumber}
-          onClick={this.onPageChange}
-        />
-    );
-  }
-
   setFilter = e => {
-    this.setState({filter: e.target.value});
+    this.setState({
+      filter: e.target.value,
+      currentPage: 1,
+    });
   }
 
   setSortBy = e => {
@@ -59,6 +49,7 @@ export default class PlanetView extends React.Component {
 
   render() {
     const visiblePlanets = getVisiblePlanets(this.state);
+    const pageNumber = Math.ceil(visiblePlanets.length / this.state.planetsPerPage);
     const indexOfEnd = this.state.planetsPerPage * this.state.currentPage;
     const indexOfStart = indexOfEnd - this.state.planetsPerPage;
     const displayPlanets = visiblePlanets.slice(indexOfStart, indexOfEnd);
@@ -71,18 +62,22 @@ export default class PlanetView extends React.Component {
               <p>Displaying {visiblePlanets.length} of {this.state.planets.length} planets</p>
             </div>
             <div className="planet-view__filters">
-              <PlanetListFilters 
-                setFilter={this.setFilter} 
-                setSortBy={this.setSortBy} 
-                filter={this.state.filter} 
-                sortBy={this.state.sortBy} 
+              <PlanetListFilters
+                setFilter={this.setFilter}
+                setSortBy={this.setSortBy}
+                filter={this.state.filter}
+                sortBy={this.state.sortBy}
               />
             </div>
         </section>
         <section className="planet-view__table">
           <PlanetList planets={displayPlanets} />
         </section>
-        {this.renderPagination()}
+        <Pagination
+          currentPage={this.state.currentPage}
+          pageNumber={pageNumber}
+          onClick={this.onPageChange}
+        />
       </div>
     );
   }
