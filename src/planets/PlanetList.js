@@ -1,10 +1,10 @@
 import React from 'react';
 import PlanetListItem from './PlanetListItem';
 
-const PlanetList = (props) => (
+const PlanetList = ({planets, indexOfStart}) => (
   <div>
     {
-      props.planets.length === 0 ? (
+      planets.length === 0 ? (
         <p>No matching planet</p>
       ) : (
         <div className='container'>
@@ -20,8 +20,8 @@ const PlanetList = (props) => (
             </thead>
             <tbody className="planet-list">
               {
-                props.planets.map( (planet, index) => (
-                  <PlanetListItem key={planet.name} {...planet} index={index}/>
+                planets.map( (planet, index) => (
+                  <PlanetListItem key={planet.name} {...planet} index={indexOfStart + index}/>
                 ))
               }
             </tbody>
