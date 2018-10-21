@@ -4,7 +4,8 @@
     linear-gradient(to right, 
     rgba($color-primary-light, 0.8), 
     rgba($color-primary-dark, 0.8)), 
-    url(https://drscdn.500px.org/photo/124608719/q%3D80_m%3D2000/v2?webp=true&sig=84f34ea03114327ec3deab6da5ea454cbb979b9a4fba0476d9e105bc4830047e);
+    // original image: https://drscdn.500px.org/photo/124608719/q%3D80_m%3D2000/v2?webp=true&sig=84f34ea03114327ec3deab6da5ea454cbb979b9a4fba0476d9e105bc4830047e
+    url("./static/images/galaxy.png");
   background-size: cover;
   background-position:top;
   position: relative;
