@@ -23,7 +23,6 @@ export default class AppRouter extends React.Component {
     this.setState({isFetchingPlanetData: true});
     fetchPlanetData()
       .then(data => {
-        console.log(data);
         this.setState({isFetchingPlanetData: false});
       })
       .catch( e => {

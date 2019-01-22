@@ -5,25 +5,31 @@ import { fetchPlanetPeopleName } from './people';
 let planetResults = [];
 
 export async function fetchPlanetData() {
-  try{
-    const { data: { count } } = await axios.get('/planets');
-    const pageNum = Math.ceil(count / 10);
+    try{
+        const { data: { count } } = await axios.get('/planets');
+        const pageNum = Math.ceil(count / 10);
 
-    let allResults = [];
-    for (let i = 1; i <= pageNum; i++){
-      const { data: { results } } = await axios.get(`/planets?page=${i}`);
-      allResults = allResults.concat(results);
-    }
+        let pagedPromises = [];
+        for (let i = 1; i <= pageNum; i++) {
+            pagedPromises.push(axios.get(`/planets?page=${i}`));
+        }
 
-    planetResults = allResults.map(result => ({
-      ...result,
-      id: getIdFromUrl(result.url)
-    }));
+        let pagedResults = await axios.all(pagedPromises);
+        planetResults = pagedResults.reduce((acc, cur) => {
+            return [
+                ...acc,
+                ...cur.data.results,
+            ];
+        },[]).map(result => ({
+            ...result,
+            id: getIdFromUrl(result.url),
+        }));
 
-    return planetResults;
-  } catch(err) {
+        return planetResults;
+    } catch(err) {
     alert('Error fetching planets');
-  }
+    console.log(err);
+    }
 }
 
 export async function getPlanets() {
